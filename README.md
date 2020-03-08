@@ -1,2 +1,1 @@
-# Solving-atcodder-problems
-Atcodder problems
+Solved problems
