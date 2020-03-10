@@ -1,0 +1,46 @@
+#include <iostream>
+#include <vector>
+#include<algorithm>
+#include <string>
+#include <map>
+using namespace std;
+map<string, int>mp;
+vector<pair<string, int>>v;
+bool sortbysec(const pair<string, int>& a,const pair<string, int>& b) {
+    return a.second > b.second;
+}
+bool cmp(const pair<string, int>& a, const pair<string, int>& b) {
+    if (a.second != b.second)return a.second > b.second;
+    return a.first < b.first;
+}
+int x, y, z, w;
+
+int main() {
+    int r1, r2, c1, c2, d1, d2;
+    cin >> r1 >> r2 >> c1 >> c2 >> d1 >> d2;
+    int cnt = 0;
+    for (int i = 1; i <= 9; ++i) {
+        x = i;
+        y = r1 - x;
+        z = c1 - x;
+        w = d1 - x;
+
+        if (z + w == r2 && z + y == d2 && y + w == c2) {
+            cnt++;
+            break;
+        }
+    }
+    if (cnt == 0) {
+        cout << -1 << endl;
+    }
+    else {
+        if (x != y && x != z && x != w && y != w && y != z && z != w && x <= 9 && y <=  9 && w <= 9 && z <= 9 && x > 0   && y > 0 && w > 0 && z >0 ) {
+            cout << x << " " << y << endl;
+            cout << z << " " << w << endl;
+        }
+        else {
+            cout << -1 << endl;
+        }
+    }
+    return 0;
+}
