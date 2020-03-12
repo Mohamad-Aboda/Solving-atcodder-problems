@@ -1,0 +1,41 @@
+#include <iostream>
+#include <vector>
+#include<algorithm>
+#include <string>
+#include <map>
+#include <stack>
+#include <set>
+using namespace std;
+bool sortbysec(const pair<string, int>& a,const pair<string, int>& b) {
+    return a.second > b.second;
+}
+bool cmp(const pair<string, int>& a, const pair<string, int>& b) {
+    if (a.second != b.second)return a.second > b.second;
+    return a.first < b.first;
+}
+vector<int>v;
+int arr[107];
+int main() {
+ 
+    int n; cin >> n;
+    
+    while (n--) {
+        int q; cin >> q;
+        int cnt = 0, cnt2 = 0;
+        for (int i = 0; i < q; ++i) {
+            int a; cin >> a;
+            v.push_back(a);
+            if (a & 1)cnt++;
+            else cnt2++;
+        }
+        if (cnt == 0 || cnt2 == 0) {
+            cout << "YES" << endl;
+        }
+        else {
+            cout << "NO" << endl;
+        }
+        v.clear();
+    }
+ 
+    return 0;
+}
